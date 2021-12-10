@@ -6,6 +6,7 @@ function Add() {
     addButton.addEventListener('click', function() {
         if (textInput.value.length > 0) {
             let newLi = document.createElement('li');
+            newLi.className = 'tarefa';
             newLi.innerText = textInput.value;
 
             listTask.appendChild(newLi);
