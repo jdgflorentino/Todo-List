@@ -20,18 +20,34 @@ function Add() {
 Add();
 
 function changeBackground() {
-
     let listTask = document.querySelector('#lista-tarefas');
     let listItem = document.getElementsByClassName('tarefa');
-    let bgColor = 'white';
 
     listTask.addEventListener('click', function(e) {
-
         for (let i = 0; i < listItem.length; i += 1) {
             listItem[i].style.backgroundColor = '';
             e.target.style.backgroundColor = 'rgb(128,128,128)';
         }
-    })
-};
+    });
+}
 
 changeBackground();
+
+function lineThrough() {
+    let listTask = document.querySelector('#lista-tarefas');
+
+    listTask.addEventListener('dblclick', function(e) {
+
+        if (e.target.className === 'tarefa') {
+
+            e.target.className = 'tarefa completed';
+
+        } else {
+            e.target.className = 'tarefa';
+        }
+
+    });
+
+}
+
+lineThrough();
