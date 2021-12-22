@@ -51,3 +51,20 @@ function lineThrough() {
 }
 
 lineThrough();
+
+function buttonClearTasks() {
+
+    let buttonClear = document.querySelector('#apaga-tudo');
+    let listTask = document.querySelector('#lista-tarefas');
+
+
+
+    buttonClear.addEventListener('click', function() {
+
+        listTask.innerHTML = '';
+
+
+    })
+};
+
+buttonClearTasks();
