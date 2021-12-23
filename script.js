@@ -37,34 +37,42 @@ function lineThrough() {
     let listTask = document.querySelector('#lista-tarefas');
 
     listTask.addEventListener('dblclick', function(e) {
-
         if (e.target.className === 'tarefa') {
-
             e.target.className = 'tarefa completed';
-
         } else {
             e.target.className = 'tarefa';
         }
-
     });
-
 }
 
 lineThrough();
 
 function buttonClearTasks() {
-
     let buttonClear = document.querySelector('#apaga-tudo');
     let listTask = document.querySelector('#lista-tarefas');
 
-
-
     buttonClear.addEventListener('click', function() {
-
         listTask.innerHTML = '';
-
-
-    })
-};
+    });
+}
 
 buttonClearTasks();
+
+function buttonRemoveCompleted() {
+    let buttonRemove = document.querySelector('#remover-finalizados');
+
+    buttonRemove.addEventListener('click', function() {
+        let listItem = document.getElementsByTagName('li');
+
+        // lógica sugerida por Danny turmaC e Lalá turmaA
+        for (let i = listItem.length - 1; i >= 0; i -= 1) {
+            if (listItem[i].className === 'tarefa completed') {
+                listItem[i].remove();
+            }
+        }
+
+
+    });
+}
+
+buttonRemoveCompleted();
