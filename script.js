@@ -76,3 +76,24 @@ function buttonRemoveCompleted() {
 }
 
 buttonRemoveCompleted();
+
+function saveButton() {
+
+    let btnsave = document.getElementById('salvar-tarefas');
+
+    btnsave.addEventListener('click', function() {
+
+        let listSaved = document.getElementById('lista-tarefas');
+        localStorage.setItem('list', listSaved.innerHTML);
+    })
+
+}
+
+saveButton();
+
+window.onload = function() {
+
+    let listSaved = document.getElementById('lista-tarefas');
+    listSaved.innerHTML = localStorage.getItem('list');
+
+}
