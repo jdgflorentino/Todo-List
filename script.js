@@ -3,9 +3,9 @@ function Add() {
     let addButton = document.querySelector('#criar-tarefa');
     let listTask = document.querySelector('#lista-tarefas');
 
-    addButton.addEventListener('click', function() {
+    addButton.addEventListener('click', () => {
         if (textInput.value.length > 0) {
-            let newLi = document.createElement('li');
+            const newLi = document.createElement('li');
             newLi.className = 'tarefa';
             newLi.innerText = textInput.value;
 
@@ -23,10 +23,12 @@ function changeBackground() {
     let listTask = document.querySelector('#lista-tarefas');
     let listItem = document.getElementsByClassName('tarefa');
 
-    listTask.addEventListener('click', function(e) {
+    listTask.addEventListener('click', (e) => {
         for (let i = 0; i < listItem.length; i += 1) {
             listItem[i].style.backgroundColor = '';
+            listItem[i].id = '';
             e.target.style.backgroundColor = 'rgb(128,128,128)';
+            e.target.id = 'selected';
         }
     });
 }
@@ -36,7 +38,7 @@ changeBackground();
 function lineThrough() {
     let listTask = document.querySelector('#lista-tarefas');
 
-    listTask.addEventListener('dblclick', function(e) {
+    listTask.addEventListener('dblclick', (e) => {
         if (e.target.className === 'tarefa') {
             e.target.className = 'tarefa completed';
         } else {
@@ -97,3 +99,24 @@ window.onload = function() {
     listSaved.innerHTML = localStorage.getItem('list');
 
 }
+
+function buttonClear() {
+
+    const btnRemove = document.getElementById('remover-selecionado');
+
+    btnRemove.addEventListener('click', function() {
+
+        let listItem = document.getElementsByTagName('li');
+
+        // lógica sugerida por Danny turmaC e Lalá turmaA
+        for (let i = listItem.length - 1; i >= 0; i -= 1) {
+            if (listItem[i].id === 'selected') {
+                listItem[i].remove();
+            }
+        }
+
+
+    })
+}
+
+buttonClear();
