@@ -72,40 +72,31 @@ function buttonRemoveCompleted() {
                 listItem[i].remove();
             }
         }
-
-
     });
 }
 
 buttonRemoveCompleted();
 
 function saveButton() {
-
     let btnsave = document.getElementById('salvar-tarefas');
 
     btnsave.addEventListener('click', function() {
-
         let listSaved = document.getElementById('lista-tarefas');
         localStorage.setItem('list', listSaved.innerHTML);
-    })
-
+    });
 }
 
 saveButton();
 
 window.onload = function() {
-
     let listSaved = document.getElementById('lista-tarefas');
     listSaved.innerHTML = localStorage.getItem('list');
-
-}
+};
 
 function buttonClear() {
-
     const btnRemove = document.getElementById('remover-selecionado');
 
     btnRemove.addEventListener('click', function() {
-
         let listItem = document.getElementsByTagName('li');
 
         // lógica sugerida por Danny turmaC e Lalá turmaA
@@ -114,9 +105,44 @@ function buttonClear() {
                 listItem[i].remove();
             }
         }
-
-
-    })
+    });
 }
 
 buttonClear();
+
+const list = document.getElementById('lista-tarefas');
+
+const item = document.getElementsByTagName('li');
+
+function moveUp() {
+
+
+
+    const btnUp = document.querySelector('#mover-cima');
+
+
+    btnUp.addEventListener('click', function() {
+
+        if (list.innerHTML !== '') {
+            if (item.selected.previousElementSibling !== null)
+                list.insertBefore(item[0], item[(item.length)]);
+        }
+
+    });
+}
+
+moveUp();
+
+function moveDown() {
+    const btnDown = document.querySelector('#mover-baixo');
+    btnDown.addEventListener('click', function() {
+
+        if (list.innerHTML !== '') {
+            if (item.selected.nextElementSibling !== null)
+                list.insertBefore(item[item.length - 1], item[0]);
+        }
+
+    });
+}
+
+moveDown();
