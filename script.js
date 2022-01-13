@@ -116,17 +116,16 @@ const item = document.getElementsByTagName('li');
 
 function moveUp() {
 
-
-
     const btnUp = document.querySelector('#mover-cima');
-
-
     btnUp.addEventListener('click', function() {
 
-        if (list.innerHTML !== '') {
-            if (item.selected.previousElementSibling !== null)
-                list.insertBefore(item[0], item[(item.length)]);
+        if (item.selected !== undefined) {
+            if (list.innerHTML !== '') {
+                if (item.selected.previousElementSibling !== null)
+                    list.insertBefore(item.selected, item.selected.previousElementSibling);
+            }
         }
+
 
     });
 }
@@ -137,10 +136,14 @@ function moveDown() {
     const btnDown = document.querySelector('#mover-baixo');
     btnDown.addEventListener('click', function() {
 
-        if (list.innerHTML !== '') {
-            if (item.selected.nextElementSibling !== null)
-                list.insertBefore(item[item.length - 1], item[0]);
+        if (item.selected !== undefined) {
+
+            if (list.innerHTML !== '') {
+                if (item.selected.nextElementSibling !== null)
+                    list.insertBefore(item.selected.nextElementSibling, item.selected);
+            }
         }
+
 
     });
 }
