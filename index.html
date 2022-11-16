@@ -6,22 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>To-Do List</title>
 </head>
 
 <body>
 
-    <header>Minha Lista de Tarefas</header>
+    <header id="header">Minha Lista de Tarefas</header>
     <p id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
-    <input type="text" id='texto-tarefa'>
+    <div>
+			<input type="text" id='texto-tarefa' placeholder="Tarefa">
+			<button type="button" id='criar-tarefa' class="clickMe">Adicionar</button>
+
+		</div>
     <ol id='lista-tarefas'></ol>
-    <button type="button" id='mover-cima'>Move cima</button>
-    <button type="button" id='mover-baixo'>Move baixo</button>
-    <button type="button" id='criar-tarefa'>Adicionar</button>
-    <button type="button" id='apaga-tudo'>Apagar tarefas</button>
-    <button type="button" id='remover-finalizados'>Remover tarefas finalizadas</button>
-    <button type="button" id='salvar-tarefas'>Salvar tarefas</button>
-    <button type="button" id='remover-selecionado'>Remover selecionados</button>
+
+		<div class="div-btn">
+
+			<button type="button" id='apaga-tudo' class="clickMe">Apagar tarefas</button>
+			<button type="button" id='salvar-tarefas' class="clickMe">Salvar tarefas</button>
+			
+		</div>
+
+	  
+    
+		<div class="div-btn">
+
+		  <button type="button" id='remover-finalizados' class="clickMe">Remover tarefas finalizadas</button>
+      <button type="button" id='remover-selecionado' class="clickMe">Remover selecionados</button>
+
+		</div>
+
+		<div class="div-btn">
+
+			<button type="button" id='mover-cima' class="clickMe">Move cima</button>
+      <button type="button" id='mover-baixo' class="clickMe">Move baixo</button>
+
+		</div>
+
+    
+
+
     <script src="script.js"></script>
 
 </body>
